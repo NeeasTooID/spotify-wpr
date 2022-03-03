@@ -1,10 +1,13 @@
-import { Button, Center } from '@mantine/core'
+import { Center, Text } from '@mantine/core'
 import type { NextPage } from 'next'
+import { useSession } from 'next-auth/react'
 
-const Home: NextPage = () => {
+const Home: NextPage = props => {
+    const { data } = useSession()
+    console.log(data)
     return (
         <Center sx={{ height: '100vh' }}>
-            <Button color="green">Login with spotify eh</Button>
+            <Text>HI app</Text>
         </Center>
     )
 }
