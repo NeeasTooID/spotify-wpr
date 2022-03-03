@@ -8,7 +8,6 @@ export const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
         return NextResponse.next()
     }
     if (!token && !pathname.includes('/login')) {
-        NextResponse.redirect('/login')
+        return NextResponse.redirect('/login')
     }
-    return new Response('Hello, world!')
 }
