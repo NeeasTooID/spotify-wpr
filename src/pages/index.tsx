@@ -1,14 +1,15 @@
 import { Center, Text } from '@mantine/core'
 import type { NextPage } from 'next'
 import { useSession } from 'next-auth/react'
+import Layout from '../components/Layout'
 
 const Home: NextPage = props => {
     const { data } = useSession()
     console.log(data)
     return (
-        <Center sx={{ height: '100vh' }}>
-            <Text>HI app</Text>
-        </Center>
+        <Layout>
+            <Text>Hi</Text>
+        </Layout>
     )
 }
 
