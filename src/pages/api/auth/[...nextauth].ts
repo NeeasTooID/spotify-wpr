@@ -51,7 +51,7 @@ export default NextAuth({
                     username: account.providerAccountId
                 }
             }
-            if (Date.now() < (token.exp as number)) {
+            if (Date.now() < (token.accessTokenExpires as number)) {
                 console.log('OK TOKEN IS STILL VALID')
                 return token
             }
