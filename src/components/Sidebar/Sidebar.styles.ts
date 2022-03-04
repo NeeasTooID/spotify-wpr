@@ -11,7 +11,26 @@ const useStyles = createStyles(theme => ({
         bottom: 0,
         left: 0,
         width: NAVBAR_WIDTH,
-        paddingTop: HEADER_HEIGHT
+        paddingTop: HEADER_HEIGHT,
+        paddingLeft: theme.spacing.sm,
+        paddingRight: theme.spacing.sm
+    },
+    home: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#2E2E2E',
+        borderRadius: '6px',
+        padding: theme.spacing.sm,
+        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: '#464646'
+        }
+    },
+    navItem: {
+        borderRadius: '6px',
+        cursor: 'pointer'
     }
 }))
 
