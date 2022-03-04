@@ -2,18 +2,24 @@ import produce from 'immer'
 import create from 'zustand'
 
 interface SpotifyState {
-    userPlaylists: SpotifyApi.PlaylistObjectSimplified[]
     initalized: boolean
-    initalize: (items: SpotifyApi.PlaylistObjectSimplified[]) => void
+    userPlaylists: SpotifyApi.PlaylistObjectSimplified[]
+    user: SpotifyApi.CurrentUsersProfileResponse | null
+    initalize: (
+        items: SpotifyApi.PlaylistObjectSimplified[],
+        user: SpotifyApi.CurrentUsersProfileResponse
+    ) => void
 }
 
 export const zSpotifyStore = create<SpotifyState>(set => ({
-    userPlaylists: [],
     initalized: false,
-    initalize: items =>
+    userPlaylists: [],
+    user: null,
+    initalize: (items, user) =>
         set(
             produce((state: SpotifyState) => {
                 state.userPlaylists = items
+                state.user = user
                 state.initalized = true
             })
         )

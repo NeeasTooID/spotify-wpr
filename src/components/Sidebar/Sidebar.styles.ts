@@ -1,5 +1,4 @@
 import { createStyles } from '@mantine/core'
-import { HEADER_HEIGHT } from '../Header/Header.styles'
 export const NAVBAR_WIDTH = 100
 const useStyles = createStyles(theme => ({
     sidebar: {
@@ -11,7 +10,7 @@ const useStyles = createStyles(theme => ({
         bottom: 0,
         left: 0,
         width: NAVBAR_WIDTH,
-        paddingTop: HEADER_HEIGHT,
+        paddingTop: theme.spacing.xl,
         paddingLeft: theme.spacing.sm,
         paddingRight: theme.spacing.sm
     },

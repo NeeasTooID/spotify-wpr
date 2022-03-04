@@ -9,12 +9,13 @@ import { zSpotifyStore } from '../stores/spotify'
 
 interface HomeProps {
     playlists: SpotifyApi.PlaylistObjectSimplified[]
+    user: SpotifyApi.CurrentUsersProfileResponse
 }
-const Home: NextPage<HomeProps> = ({ playlists }) => {
+const Home: NextPage<HomeProps> = ({ playlists, user }) => {
     const { data } = useSession()
     const store = zSpotifyStore()
     useEffect(() => {
-        store.initalize(playlists)
+        store.initalize(playlists, user)
     }, [])
     console.log(store, data)
     return (
@@ -37,9 +38,9 @@ export const getServerSideProps: GetServerSideProps = async context => {
     const {
         body: { items }
     } = await spotifyApi.getUserPlaylists()
-
+    const { body: me } = await spotifyApi.getMe()
     return {
-        props: { playlists: items }
+        props: { playlists: items, user: me }
     }
 }
 
