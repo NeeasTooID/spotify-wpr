@@ -26,21 +26,26 @@ const Home: NextPage<HomeProps> = ({ playlists, user }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    if (!spotifyApi.getAccessToken()) {
-        const token = await getToken({
-            req: context.req,
-            secret: process.env.JWT_SECRET
-        })
-        console.log('TOKEN: ', token)
-        spotifyApi.setAccessToken(token!.accessToken as string)
-        spotifyApi.setRefreshToken(token!.refreshToken as string)
-    }
-    const {
-        body: { items }
-    } = await spotifyApi.getUserPlaylists()
-    const { body: me } = await spotifyApi.getMe()
-    return {
-        props: { playlists: items, user: me }
+    try {
+        if (!spotifyApi.getAccessToken()) {
+            const token = await getToken({
+                req: context.req,
+                secret: process.env.JWT_SECRET
+            })
+            console.log('TOKEN: ', token)
+            spotifyApi.setAccessToken(token!.accessToken as string)
+            spotifyApi.setRefreshToken(token!.refreshToken as string)
+        }
+        const {
+            body: { items }
+        } = await spotifyApi.getUserPlaylists()
+        const { body: me } = await spotifyApi.getMe()
+        return {
+            props: { playlists: items, user: me }
+        }
+    } catch (err) {
+        console.error(err)
+        return { props: { playlists: [], user: {} } }
     }
 }
 

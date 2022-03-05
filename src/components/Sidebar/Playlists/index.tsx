@@ -1,4 +1,5 @@
 import { Box, Image } from '@mantine/core'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { zSpotifyStore } from '../../../stores/spotify'
 import useStyles from './Playlists.styles'
@@ -7,6 +8,7 @@ interface Props {}
 
 const SidebarPlaylists: React.FC<Props> = props => {
     const store = zSpotifyStore()
+    const router = useRouter()
     const { classes } = useStyles()
     if (!store.initalized) return <div>LOADING</div>
     return (
@@ -15,6 +17,7 @@ const SidebarPlaylists: React.FC<Props> = props => {
                 {store.userPlaylists.map(playlist => (
                     <Box className={classes.playlist}>
                         <Image
+                            onClick={() => router.push(`/playlist/${playlist.id}`)}
                             key={playlist.id}
                             src={playlist.images?.length ? playlist.images[0].url : undefined}
                         />
