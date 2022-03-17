@@ -9,6 +9,7 @@ interface Props {}
 const Header: React.FC<Props> = props => {
     const { cx, classes } = useStyles()
     const store = zSpotifyStore()
+    console.log(store)
     return (
         <>
             <header className={classes.header}>
@@ -16,10 +17,11 @@ const Header: React.FC<Props> = props => {
                 <Menu
                     control={
                         <Box className={classes.userPill}>
-                            <Image
-                                className={classes.image}
-                                src={store.user?.images?.at(0)?.url ?? undefined}
-                            />
+                            {store.user?.images?.at(0)?.url ? (
+                                <Image className={classes.image} src={store.user?.images?.at(0)?.url} />
+                            ) : (
+                                <User className={classes.image} />
+                            )}
                         </Box>
                     }
                 >

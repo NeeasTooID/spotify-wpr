@@ -10,6 +10,7 @@ const useStyles = createStyles(theme => ({
             content: `''`,
             position: 'absolute',
             top: '0',
+            left: '0',
             width: '100%',
             height: '35%',
             background: 'linear-gradient(to bottom, rgb(50 131 16) -26%, rgba(0, 0, 0, 0))',

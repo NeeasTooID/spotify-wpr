@@ -4,12 +4,12 @@ import { useState } from 'react'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { spotifyApi } from '../spotify'
 
-export type BetterSession = Session & { acessToken: string; refreshToken: string }
+export type BetterSession = Session & { accessToken: string; refreshToken: string }
 
 export const useSpotify = () => {
     const { data, status } = <
         {
-            data: (Session & { accessToken: string; refreshToken: string }) | null
+            data: BetterSession | null
             status: 'authenticated' | 'loading'
         }
     >useSession<true>()
