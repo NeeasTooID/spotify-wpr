@@ -31,7 +31,7 @@ interface Props {}
 
 const Sidebar: React.FC<Props> = () => {
     return (
-        <Box as="aside" bg="spotify.700" w={80} h="100vh" p={3} userSelect="none">
+        <Box as="aside" bg="spotify.700" w={80} h="100vh" px={6} py={3} userSelect="none">
             <Box mt={4} mb={8}>
                 <Image src="https://media.discordapp.net/attachments/770534108832858132/967671469612081182/better.png" />
             </Box>
