@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/core": "^3.6.14",
-    "@mantine/dropzone": "^3.6.14",
-    "@mantine/hooks": "^3.6.14",
-    "@mantine/modals": "^3.6.14",
+    "@babel/core": "^7.0.0",
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@types/spotify-web-api-node": "^5.0.7",
+    "framer-motion": "^6",
     "immer": "^9.0.12",
     "next": "12.1.0",
     "next-auth": "^4.2.1",

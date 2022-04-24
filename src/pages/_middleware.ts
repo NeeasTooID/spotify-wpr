@@ -8,6 +8,6 @@ export const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
         return NextResponse.next()
     }
     if (!token && !pathname.includes('/login')) {
-        return NextResponse.redirect('/login')
+        return NextResponse.redirect('http://localhost:3000/login')
     }
 }

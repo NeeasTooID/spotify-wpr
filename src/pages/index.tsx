@@ -1,9 +1,8 @@
-import { Center, Text } from '@mantine/core'
+import { Text } from '@chakra-ui/react'
 import type { GetServerSideProps, NextPage } from 'next'
 import { getToken } from 'next-auth/jwt'
 import { useSession } from 'next-auth/react'
 import { useEffect } from 'react'
-import Layout from '../components/Layout'
 import { spotifyApi } from '../spotify'
 import { zSpotifyStore } from '../stores/spotify'
 
@@ -18,11 +17,7 @@ const Home: NextPage<HomeProps> = ({ playlists, user }) => {
         store.initalize(playlists, user)
     }, [])
     console.log(store, data)
-    return (
-        <Layout>
-            <Text>Hi</Text>
-        </Layout>
-    )
+    return <Text>Hi</Text>
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {

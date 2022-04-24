@@ -1,8 +1,7 @@
-import { Text } from '@mantine/core'
+import { Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
-import Layout from '../../components/Layout'
 import { zSpotifyStore } from '../../stores/spotify'
 
 type Props = {}
@@ -14,9 +13,7 @@ const PlaylistPage: NextPage<Props> = ({}) => {
     if (!playlist) return <div>idk wot that playlist is eh</div>
     return (
         <>
-            <Layout>
-                <Text>{playlist.name}</Text>
-            </Layout>
+            <Text>{playlist.name}</Text>
         </>
     )
 }

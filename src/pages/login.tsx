@@ -1,4 +1,4 @@
-import { Button, Center, Text } from '@mantine/core'
+import { Button, Center, Text } from '@chakra-ui/react'
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import { BuiltInProviderType } from 'next-auth/providers'
 import { ClientSafeProvider, getProviders, LiteralUnion, signIn } from 'next-auth/react'
