@@ -3,6 +3,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 import { getToken } from 'next-auth/jwt'
 import { useSession } from 'next-auth/react'
 import { useEffect } from 'react'
+import Layout from '../components/Layout'
 import { spotifyApi } from '../spotify'
 import { zSpotifyStore } from '../stores/spotify'
 
@@ -17,7 +18,11 @@ const Home: NextPage<HomeProps> = ({ playlists, user }) => {
         store.initalize(playlists, user)
     }, [])
     console.log(store, data)
-    return <Text>Hi</Text>
+    return (
+        <Layout>
+            <Text>Hi</Text>
+        </Layout>
+    )
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
